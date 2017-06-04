@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm1 = new Vue({
+                el: "#box",
+                data: {
+                    istrue: true,
+                    arr: ["1", "2", "3"],
+                    json: {a: "apple", b: "banana", c: "orange"}
+                },
+                methods: {
+                    add: function () {
+                        this.arr.push(this.arr.length + 1)
+                    },
+                    del: function () {
+                        this.arr.pop()
+                    },
+                    show: function (flag) {
+                        this.istrue = !flag;
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="button" value="按钮" v-on:click="show(istrue)">
+    <div style="width: 100px; height: 100px;background: mediumvioletred" v-show="istrue"></div>
+</div>
+
+
+</body>
+</html>

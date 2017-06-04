@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm1 = new Vue({
+                el: "#box",
+                data: {
+                    arr: ["1", "2", "3"],
+                    json: {a: "apple", b: "banana", c: "orange"}
+                },
+                methods: {
+                    add: function () {
+                        this.arr.push(this.arr.length + 1)
+                    },
+                    del: function () {
+                        this.arr.pop()
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="button" value="增加" v-on:click="add()">
+    <input type="button" value="删除" v-on:click="del()">
+    <input type="button" value="移入" v-on:mouseover="add()">
+    <input type="button" value="移除" v-on:mouseout="del()">
+    <hr>
+    <ol>
+        <li v-for="value in arr">
+            {{value}}
+        </li>
+    </ol>
+</div>
+
+
+</body>
+</html>

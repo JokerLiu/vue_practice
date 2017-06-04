@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: ".box",
+                data: {
+                    msg: "aa",
+                    msg2: 12,
+                    msg3: true,
+                    arr: ["1", "2", "3"],
+                    json: {a: "apple", b: "banana", c: "orange"}
+                }
+            });
+            var vm1 = new Vue({
+                el: "#box",
+                data: {
+                    arr: ["1", "2", "3"],
+                    json: {a: "apple", b: "banana", c: "orange"}
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li v-for="(value, index) in arr">
+            {{value}} -- "索引：" {{index}}
+        </li>
+    </ul>
+    <hr>
+    <ol>
+        <li v-for="(value, key, index) in json">
+            {{value}} -- "key："{{key}} -- "索引：" {{index}}
+        </li>
+    </ol>
+</div>
+<hr>
+
+<div class="box">
+    <input type="text" v-model="msg">
+    <input type="text" v-model="msg">
+    <p> {{msg}}</p>
+    <p> {{msg2}}</p>
+    <p> {{msg3}}</p>
+    <p> {{arr}}</p>
+    <p> {{json}}</p>
+</div>
+</body>
+</html>
